@@ -1,22 +1,100 @@
-{\rtf1\ansi\ansicpg1252\cocoartf2820
-\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
-{\colortbl;\red255\green255\blue255;}
-{\*\expandedcolortbl;;}
-\margl1440\margr1440\vieww11520\viewh8400\viewkind0
-\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+Talking Head AI
 
-\f0\fs24 \cf0 # Talking Head AI \uc0\u55356 \u57261 \
-A generative AI model for **audio-driven talking heads** using GANs and diffusion models.\
-\
-## Features\
-- \uc0\u55356 \u57253  **Generate talking head images from audio input**\
-- \uc0\u55358 \u56800  **Deep Learning Model** trained using PyTorch\
-- \uc0\u55357 \u56960  **Optimized for real-time inference**\
-- \uc0\u55357 \u56586  **Lip-syncing support** using audio-driven synthesis\
-\
-## Installation\
-1. Clone the repo:\
-   ```bash\
-   git clone https://github.com/yourusername/talking-head-ai.git\
-   cd talking-head-ai\
-}
+A generative AI model for audio-driven talking heads using GANs and diffusion models. This project allows users to generate AI-based talking head images from video frames and audio input.
+
+Features 
+
+   Generate talking head images from audio input
+
+   Deep Learning Model trained using PyTorch
+
+   Optimized for real-time inference
+
+   Lip-syncing support using audio-driven synthesis
+
+   Deployable API using FastAPI
+
+Installation 
+
+1️. Clone the Repository
+
+git clone https://github.com/YOUR_USERNAME/talking-head-ai.git
+cd talking-head-ai
+
+2️. Set Up Virtual Environment
+
+python -m venv .venv
+source .venv/bin/activate  # macOS/Linux
+.venv\Scripts\activate  # Windows
+
+3️. Install Dependencies
+
+pip install -r requirements.txt
+
+Data Preparation 
+
+1️. Create Necessary Folders
+
+mkdir -p data/video_frames data/audio_files output models
+
+2️. Extract Video Frames
+
+python scripts/extract_frames.py --video video.mp4
+
+3️. Extract Audio
+
+ffmpeg -i video.mp4 -vn -acodec pcm_s16le -ar 44100 -ac 1 data/audio_files/audio.wav
+
+Training the Model 
+
+python src/train.py
+
+The model will train for 100 epochs
+
+Checkpoint models will be saved in models/
+
+Sample images will be saved in output/
+
+Generating Talking Head Images 
+
+python src/inference.py
+
+The generated AI image will be saved in output/generated_talking_head.png
+
+Deploying as an API 
+
+1️. Install FastAPI (Already in requirements.txt)
+
+pip install fastapi uvicorn
+
+2️. Run the API Server
+
+uvicorn src.api:app --reload
+
+3️. Test the API
+
+Open http://127.0.0.1:8000/ to check if the API is running.
+
+Open http://127.0.0.1:8000/generate/ to generate an AI-powered image.
+
+Uploading to GitHub 
+
+1️. Initialize Git and Add Files
+
+git init
+git add .
+git commit -m "Initial commit - Talking Head AI"
+
+2️. Push to GitHub
+
+git remote add origin https://github.com/YOUR_USERNAME/talking-head-ai.git
+git branch -M main
+git push -u origin main
+
+Next Steps 
+
+Improve training performance with better architectures
+
+Optimize real-time inference speed
+
+Implement video synthesis for full talking head animation
