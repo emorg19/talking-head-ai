@@ -1,0 +1,11 @@
+torch
+torchvision
+torchaudio
+numpy<2
+opencv-python
+pillow
+fastapi
+uvicorn
+tqdm
+matplotlib
+ffmpeg-python
